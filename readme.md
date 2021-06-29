@@ -28,7 +28,7 @@
     Performing system checks...
     System check identified no issues (0 silenced).
     June 29, 2021 - 15:52:47
-    Django version 3.2.4, using settings <p> Phonebook.settings </p>
+    Django version 3.2.4, using settings 'Phonebook.settings'
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CTRL-BREAK.
     <code>
@@ -36,7 +36,7 @@
 
 # DATABASE SETUP
 
-    DATABASES = {
+    ```DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'your_database_name', # example - blog_data
@@ -44,6 +44,6 @@
         'PASSWORD': 'your_mysql_password',
         'HOST': 'localhost',
         'PORT': '3306',
-    }
+    }```
     
 }
