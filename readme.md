@@ -11,12 +11,12 @@
 ## MANUAL
 
     1. Create a folder and put all the files in it.
-    2. Create a virtual env `virtualenv env`.
-    3. work on the virtual env by `source env/bin/activate`.
-    4. Install the virtual env requirments by `pip install -r requirements.txt`.
-    5. Always make migrations by `python manage.py makemigrations`.
-    6. Migrate using `python manage.py migrate`.
-    7. Run the app by `python manage.py runserver`.
+    2. Create a virtual env `<virtualenv env>`.
+    3. work on the virtual env by `<source env/bin/activate>`.
+    4. Install the virtual env requirments by `<pip install -r requirements.txt>`.
+    5. Always make migrations by `<python manage.py makemigrations>`.
+    6. Migrate using `<python manage.py migrate>`.
+    7. Run the app by `<python manage.py runserver>`.
 
     ```
     Watching for file changes with StatReloader
