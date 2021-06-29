@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block title %} DataBase {% endblock title %} 
+{%block body %}
+<div class="container py-2">
+  <h1 class="text-center my-4">Search for your contact details: -</h1>
+  <form method="POST" action="/database">
+    {% csrf_token %}
+    <div class="form-group my-3 mx-4">
+      <label for="Search">Search: </label>
+      <input
+        type="text"
+        class="form-control"
+        name="search"
+        id="search"
+        placeholder="Search for the User"
+      />
+    </div>
+    
+    <button type="submit" class="btn btn-primary mx-4 px-5">Submit</button>
+  </form>
+<div class="container">
+  {% if searchComplete %}
+  <table class="table">
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Created By</th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+      <th>{{contact.fname}}</th>
+      <th>{{contact.lname}}</th>
+      <th>{{contact.phone}}</th>
+      <th>{{contact.email}}</th>
+      <th>{{contact.createdBy}}</th>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</div>
+{% endblock body %}
