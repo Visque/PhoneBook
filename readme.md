@@ -7,3 +7,7 @@
     2. User signin
     3. User Creating contacts
     4. User acessing the Public Database (Includes contacts made by all users)
+
+# Virtual env
+
+    
