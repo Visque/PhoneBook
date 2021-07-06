@@ -1,4 +1,5 @@
-from django.core.checks.messages import CheckMessage
+# from typing_extensions import Required
+# from django.core.checks.messages import CheckMessage
 from django.db import models
 
 # Create your models here.

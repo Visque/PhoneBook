@@ -30,7 +30,7 @@ Remove
         <tr>
             <th scope="col">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="0" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1"></label>
                 </div>
             </th>
@@ -42,13 +42,13 @@ Remove
         {% for contact in contacts %}
             <th>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="checks[]">
+                    <input class="form-check-input" type="checkbox" value="0" id="defaultCheck1" name="select">
                     <label class="form-check-label" for="defaultCheck1"></label>
                 </div>
             </th>
             <th name="fname">{{contact.fname}}</th>
             <th name="lname">{{contact.lname}}</th>      
-            <th name="phone[]">{{contact.phone}}</th>
+            <th name="phone">{{contact.phone}}</th>
             <th name="email">{{contact.email}}</th>
         </tr>
         {% endfor %}

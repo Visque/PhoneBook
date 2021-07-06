@@ -38,20 +38,24 @@ def remove(request):
     if request.user.is_anonymous:
         return redirect('/accounts/login')
     if request.method == "POST":
-        phone = request.POST.getlist('phone[]')
-        checks = request.POST.getlist('checks[]')
-        # checkdir = {phone: checks}
-        print(phone, checks)
+        contacts = Contact.objects.filter(createdBy = request.user.get_username()).order_by('fname')
+        print("list : ", contacts)
+        for contact in contacts:
+            print(request.POST.get('select'))
+            if request.POST.get('select') == True: 
+                contact.delete()
         return render(request, 'pages/remove.html')
     else:
         try:
-            contacts = Contact.objects.filter(createdBy = request.user.get_username())
+            contacts = Contact.objects.filter(createdBy = request.user.get_username()).order_by()
             empty = False
             if not len(contacts):
                 empty = True
             return render(request, 'pages/remove.html', {'contacts': contacts, 'empty': empty})
         except:
-            return render(request, 'pages/remove.html', {'empty': True})
+            contacts = Contact.objects.filter(createdBy = request.user.get_username())
+            return render(request, 'pages/remove.html', {'contacts': contacts, 'empty': True})
+
 
 def req(request):                                                           # to request for a change
     if request.user.is_anonymous:
@@ -65,11 +69,11 @@ def database(request):                                                      # to
     if request.method == "POST":
         search = request.POST.get('search') 
         try:
-            contacts = Contact.objects.all()
+            contacts = Contact.objects.order_by('fname')
             listOfContacts = list()
             for contact in contacts:
                 foundFlag = 0
-                attr = [contact.fname, contact.lname, contact.email]
+                attr = [contact.fname, contact.lname, contact.email, contact.createdBy]
                 attrNumeric = [contact.email, contact.phone]
                 if search.isnumeric():
                     if not foundFlag:
